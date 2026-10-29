@@ -136,29 +136,7 @@ function selectDevice(d: Device) {
 }
 
 // === File selection ===
-dropZone.addEventListener("click", () => fileInput.click());
-dropZone.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  dropZone.classList.add("dragover");
-});
-dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
-dropZone.addEventListener("drop", async (e) => {
-  e.preventDefault();
-  dropZone.classList.remove("dragover");
-  if (e.dataTransfer?.files) {
-    const paths = Array.from(e.dataTransfer.files).map((f) => (f as any).path || f.name);
-    await addFiles(paths);
-  }
-});
-
-fileInput.addEventListener("change", async () => {
-  if (fileInput.files) {
-    const paths = Array.from(fileInput.files).map((f) => (f as any).path || f.name);
-    await addFiles(paths);
-  }
-});
-
-$("#btnSelectFile").addEventListener("click", async () => {
+async function openFilePicker() {
   try {
     const { open } = await import("@tauri-apps/plugin-dialog");
     const selected = await open({ multiple: true, directory: false });
@@ -166,8 +144,25 @@ $("#btnSelectFile").addEventListener("click", async () => {
       const paths = Array.isArray(selected) ? selected : [selected];
       await addFiles(paths);
     }
-  } catch {
+  } catch (e) {
+    console.error("Tauri dialog failed, falling back:", e);
     fileInput.click();
+  }
+}
+
+// dropZone 点击 = 打开文件选择；按钮阻止冒泡，避免双弹窗
+dropZone.addEventListener("click", () => openFilePicker());
+
+$("#btnSelectFile").addEventListener("click", (e) => {
+  e.stopPropagation();
+  openFilePicker();
+});
+
+fileInput.addEventListener("change", async () => {
+  if (fileInput.files) {
+    const paths = Array.from(fileInput.files).map((f) => (f as any).path || f.name);
+    await addFiles(paths);
+    fileInput.value = "";
   }
 });
 
@@ -449,6 +444,14 @@ function setupEventListeners() {
   );
 
   $("#btnRefresh").addEventListener("click", refreshDevices);
+
+  // Tauri 原生文件拖放（HTML5 drop 在 Tauri webview 中不触发）
+  listen<{ paths: string[] }>("tauri://drag-drop", async (e) => {
+    dropZone.classList.remove("dragover");
+    await addFiles(e.payload.paths);
+  });
+  listen("tauri://drag-enter", () => dropZone.classList.add("dragover"));
+  listen("tauri://drag-leave", () => dropZone.classList.remove("dragover"));
 }
 
 // === Start ===
