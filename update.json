@@ -1,15 +1,15 @@
 {
-  "version": "0.1.0",
-  "notes": "首次发布：局域网文件传输 + 自动更新",
-  "pub_date": "2026-10-29T23:00:00+08:00",
+  "version": "0.1.1",
+  "notes": "LanDrop v0.1.1",
+  "pub_date": "2026-10-29T17:38:37.935817+00:00",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTRlN4dHBXWHlKUzhpYzJSSlVaQllWZ1dGRjZ3Yk0wOTVPcTNIUWF5eVNzbFQyT01RWk1QVU45QTc4VDJSc0ppSGxtUkFHaGVsSE14OFZRU29QbytHTXNocEUyM3JrVGdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMjk0MzUzCWZpbGU6TGFuRHJvcC5hcHAudGFyLmd6CXZlcnNpb246MC4xLjAKaTBvTlpST01OZEJxMjQ4U3lJamFMTzNCdllmOGo1MGowcndqajVyUHRxZjlkcG4vWnBrRGkzQ2Q1UXo5c1VXU24vaTdJRnJjcS9sZnRaZDdjV1BjQ0E9PQo=",
-      "url": "https://sub.hugme.space/landrop/LanDrop.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTRlN4dHBXWHlKUzA3OGxtV3RqM1B5aFV4NE9IZThmenJIMi9qeGtGVEpkb1hWbjVXWmllS3NSUWtNQ2QyYVNORnMrOWtaRi9oSG9xODYwejRVa0lLL1ZCS0NTVGwwOEE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMjk1MjY1CWZpbGU6TGFuRHJvcC5hcHAudGFyLmd6CXZlcnNpb246MC4xLjEKaC9JZlJzQXNINVdGN2c3OGhLVVVDeHY1NzVoRzZTcWhsdzZ4aUtHOXVjdjBuNlI3T2JNL3ZKUkc3SkxkQ3gzaGF1dmVQL1Q3MWFtZmxDaEhaaHV2Q3c9PQo=",
+      "url": "https://sub.hugme.space/landrop/LanDrop_aarch64.app.tar.gz"
     },
     "windows-x86_64": {
-      "signature": "",
-      "url": "https://sub.hugme.space/landrop/LanDrop_0.1.0_x64-setup.msi"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTRlN4dHBXWHlKUzhhZlRGOFVRMEFoSURJdXRrRjR4QjZRQ0Zwd0paWUZNYUJZN2VoTVIxUmhvc3owcEl6RU52UWJSWElvRXA1OWtWQVQ1TXBxaUlZM2syWTEycFdrR2dFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMjk1MzQ5CWZpbGU6TGFuRHJvcF8wLjEuMV94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjEKMTdNQVJ3cDdWMC9vd29MclhYWjJKcCtlRmlsZmx2TlFtbXNyNjgrc2tFQzBPN3FLa2F3cnMyY0ZtTkg2bG9CZ2hxVkVOdWpHSjlCSnE4TjlGN2xyQXc9PQo=",
+      "url": "https://sub.hugme.space/landrop/LanDrop_0.1.1_x64-setup.exe"
     }
   }
 }

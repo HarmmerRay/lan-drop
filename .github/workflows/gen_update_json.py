@@ -25,7 +25,7 @@ def read_sig(pattern):
 
 platforms = {}
 
-mac_sig, mac_asset = read_sig("sigs/LanDrop.app.tar.gz.sig")
+mac_sig, mac_asset = read_sig("sigs/*.app.tar.gz.sig")
 if mac_sig:
     platforms["darwin-aarch64"] = {
         "signature": mac_sig,
@@ -33,9 +33,9 @@ if mac_sig:
     }
 
 # Windows: prefer NSIS updater artifact, fall back to MSI
-win_sig, win_asset = read_sig("sigs/*.nsis.zip.sig")
+win_sig, win_asset = read_sig("sigs/*x64-setup.exe.sig")
 if not win_sig:
-    win_sig, win_asset = read_sig("sigs/*.msi.zip.sig")
+    win_sig, win_asset = read_sig("sigs/*.msi.sig")
 if win_sig:
     platforms["windows-x86_64"] = {
         "signature": win_sig,
