@@ -4,12 +4,12 @@
   "pub_date": "2026-10-29T23:00:00+08:00",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTRlN4dHBXWHlKUy9hZHhnaFZKVkpoaDQycDZwUjduMDk5S1ZFYWozS1VKUWphUWJnQ25xc0doUmlid1BTTmlCdUdDRGd0M1p1SVIwSjN3U0RiMjM5bDZMUlpiZHE0bFFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMjg1ODg5CWZpbGU6TGFuRHJvcC5hcHAudGFyLmd6CXZlcnNpb246MC4xLjAKekhnOE8rU0YwQnQ0SkZOUFVkN05xNFNTcVM3UUJQZWNFczBWUU9BUVNIVmhBdkQybUh2Q2dNbit6em1pdUJ1RnMxSW10b2NKRTVQN1RBb1FsSnZkRFE9PQo=",
-      "url": "https://github.com/HarmmerRay/lan-drop/releases/download/v0.1.0/LanDrop.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTRlN4dHBXWHlKUzhpYzJSSlVaQllWZ1dGRjZ3Yk0wOTVPcTNIUWF5eVNzbFQyT01RWk1QVU45QTc4VDJSc0ppSGxtUkFHaGVsSE14OFZRU29QbytHTXNocEUyM3JrVGdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMjk0MzUzCWZpbGU6TGFuRHJvcC5hcHAudGFyLmd6CXZlcnNpb246MC4xLjAKaTBvTlpST01OZEJxMjQ4U3lJamFMTzNCdllmOGo1MGowcndqajVyUHRxZjlkcG4vWnBrRGkzQ2Q1UXo5c1VXU24vaTdJRnJjcS9sZnRaZDdjV1BjQ0E9PQo=",
+      "url": "https://sub.hugme.space/landrop/LanDrop.app.tar.gz"
     },
     "windows-x86_64": {
       "signature": "",
-      "url": "https://github.com/HarmmerRay/lan-drop/releases/download/v0.1.0/LanDrop_0.1.0_x64-setup.msi"
+      "url": "https://sub.hugme.space/landrop/LanDrop_0.1.0_x64-setup.msi"
     }
   }
 }

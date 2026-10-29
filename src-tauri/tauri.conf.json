@@ -32,7 +32,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://github.com/HarmmerRay/lan-drop/releases/latest/download/update.json"
+        "https://sub.hugme.space/landrop/update.json"
       ],
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDRCODk3QzU5NjkxQjRCODUKUldTRlN4dHBXWHlKUzllUjJNNGJMd2xPNGd6RW5ROUkveDZtb205V0RKWE44cmV6N2NSK3BEVmwK",
       "windows": {
