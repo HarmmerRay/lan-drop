@@ -305,6 +305,11 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
       updateStatus.textContent = `发现新版本 v${update.version}`;
 
       // Show update modal
+      updateProgress.style.display = "none";
+      updateProgressFill.style.width = "0%";
+      updateProgressText.textContent = "";
+      ($("#btnUpdateNow") as HTMLButtonElement).disabled = false;
+      ($("#btnUpdateLater") as HTMLButtonElement).disabled = false;
       updateInfo.innerHTML = `
         <div class="version-row">
           <span class="label">当前版本</span>
@@ -357,7 +362,10 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
           updateProgressText.textContent = "安装完成，正在重启...";
           await relaunch();
         } catch (e) {
-          updateProgressText.textContent = `更新失败: ${e}`;
+          const message = String(e);
+          updateProgressText.textContent = /signature|minisign/i.test(message)
+            ? "更新失败：安装包签名校验失败"
+            : `更新失败: ${e}`;
           ($("#btnUpdateNow") as HTMLButtonElement).disabled = false;
           ($("#btnUpdateLater") as HTMLButtonElement).disabled = false;
         }
@@ -369,11 +377,16 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
       };
     }
   } catch (e: any) {
+    const message = String(e?.message || e);
     updateStatus.className = "update-status error";
-    if (e?.message?.includes("Could not fetch")) {
-      updateStatus.textContent = "✗ 无法连接更新服务器";
+    if (/signature|minisign/i.test(message)) {
+      updateStatus.textContent = "✗ 更新包签名校验失败";
+    } else if (/timed? ?out/i.test(message)) {
+      updateStatus.textContent = "✗ 检查更新超时，请检查网络";
+    } else if (/request|fetch|connect|network/i.test(message)) {
+      updateStatus.textContent = "✗ 无法连接更新服务器，请检查网络";
     } else {
-      updateStatus.textContent = `✗ 检查失败: ${e?.message || e}`;
+      updateStatus.textContent = `✗ 检查失败: ${message}`;
     }
     showToast("检查更新失败", "error");
   } finally {

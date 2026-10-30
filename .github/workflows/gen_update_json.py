@@ -11,7 +11,10 @@ from datetime import datetime, timezone
 
 tag = sys.argv[1]                    # e.g. v0.1.1
 version = tag.lstrip("v")
-BASE = "https://sub.hugme.space/landrop"
+BASE = os.environ.get(
+    "LANDROP_UPDATE_BASE",
+    "https://sub.hugme.space/landrop",
+)
 
 
 def read_sig(pattern):
