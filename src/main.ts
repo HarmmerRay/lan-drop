@@ -1,4 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
+import { getVersion } from "@tauri-apps/api/app";
 import { listen } from "@tauri-apps/api/event";
 import { check } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
@@ -64,10 +65,10 @@ async function init() {
   }
 
   try {
-    const version: string = await invoke("get_app_version");
+    const version = await getVersion();
     $("#appVersion").textContent = `v${version}`;
   } catch {
-    $("#appVersion").textContent = "v0.1.0";
+    $("#appVersion").textContent = "-";
   }
 
   await refreshDevices();
@@ -293,7 +294,7 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
   updateStatus.textContent = "正在检查更新...";
 
   try {
-    const update = await check();
+    const update = await check({ timeout: 15000 });
 
     if (!update) {
       updateStatus.className = "update-status success";

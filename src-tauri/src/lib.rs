@@ -536,11 +536,6 @@ async fn handle_connection(
     Ok(())
 }
 
-#[tauri::command]
-fn get_app_version() -> String {
-    env!("CARGO_PKG_VERSION").to_string()
-}
-
 // === Helpers ===
 
 fn get_download_dir() -> std::path::PathBuf {
@@ -641,7 +636,6 @@ pub fn run() {
             send_files,
             accept_transfer,
             reject_transfer,
-            get_app_version,
         ])
         .run(tauri::generate_context!())
         .expect("error while building tauri application");
