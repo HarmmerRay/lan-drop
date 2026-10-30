@@ -1,6 +1,6 @@
 [package]
 name = "lan-drop"
-version = "0.1.4"
+version = "0.1.5"
 description = "Lightweight LAN file transfer"
 authors = ["you"]
 license = "MIT"
