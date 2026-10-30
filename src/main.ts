@@ -294,7 +294,7 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
   updateStatus.textContent = "正在检查更新...";
 
   try {
-    const update = await check({ timeout: 15000 });
+    const update = await check({ timeout: 8000 });
 
     if (!update) {
       updateStatus.className = "update-status success";
@@ -335,7 +335,7 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
             switch (event.event) {
               case "Started":
                 contentLength = event.data.contentLength || 0;
-                updateProgressText.textContent = "开始下载...";
+                updateProgressText.textContent = "开始下载更新...";
                 break;
               case "Progress":
                 downloaded += event.data.chunkLength;
@@ -349,15 +349,13 @@ $("#btnCheckUpdate").addEventListener("click", async () => {
                 break;
               case "Finished":
                 updateProgressFill.style.width = "100%";
-                updateProgressText.textContent = "安装完成，即将重启...";
+                updateProgressText.textContent = "正在安装更新...";
                 break;
             }
-          });
+          }, { timeout: 180000 });
 
-          // Relaunch after install
-          setTimeout(async () => {
-            await relaunch();
-          }, 1000);
+          updateProgressText.textContent = "安装完成，正在重启...";
+          await relaunch();
         } catch (e) {
           updateProgressText.textContent = `更新失败: ${e}`;
           ($("#btnUpdateNow") as HTMLButtonElement).disabled = false;

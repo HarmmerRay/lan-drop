@@ -9,7 +9,16 @@ permissions:
   contents: write
 
 jobs:
+  validate:
+    name: Validate updater config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate updater config
+        run: python3 .github/workflows/validate_updater_config.py
+
   build:
+    needs: validate
     strategy:
       fail-fast: false
       matrix:

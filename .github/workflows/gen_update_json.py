@@ -29,7 +29,7 @@ mac_sig, mac_asset = read_sig("sigs/*.app.tar.gz.sig")
 if mac_sig:
     platforms["darwin-aarch64"] = {
         "signature": mac_sig,
-        "url": f"{BASE}/{mac_asset}",
+        "url": f"{BASE}/{mac_asset}?v={version}",
     }
 
 # Windows: prefer NSIS updater artifact, fall back to MSI
@@ -39,7 +39,7 @@ if not win_sig:
 if win_sig:
     platforms["windows-x86_64"] = {
         "signature": win_sig,
-        "url": f"{BASE}/{win_asset}",
+        "url": f"{BASE}/{win_asset}?v={version}",
     }
 
 if not platforms:
